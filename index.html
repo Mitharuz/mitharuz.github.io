@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mitharuz</title>
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABgUlEQVRYR+2X0W3DMBBF7y5kQ9w0nPgLE5AyCyWBgSShjPYAlfQJhGyi6B6NzHcoUsiQJ79QnkzJLEolCgoBPbIfq5FEe3N0N7/KiqPeQq5HuK7XxEiEy6KY8BG0gBFoBWy5K8Jq8AJHAZfHYjpJtyRgLfVXxRkpLMq48BFC78DEIHzb86NpkQkM9B0j8Jj6DYVuBHaJDTkhuQFF2EQXWQEg9CNEXKEM2paKoLUSC4ku0As0uQcx48vM4xhSppAqhFDL0PfHyAOeqFb8EZgErYoT9zF3uH6Xoi2LJBaTyDEqJIBAJ5G0OnWpq73Zh7u4kxLwglpaCNlAtxmOYqS38JkSCPQ9PCTGAtJEkq/22Eb9A4DW/ymfw20ic2AAJHEPE18+kFwtzYm/0XnhDYH69TzDa93a2xg0kdEolw5v1duBtSnPTiSaWYuyyxzOEUlJaK4R1aygAAAAASUVORK5CYII=" />
+<link rel="icon" type="image/png" href="https://i.imgur.com/8RYWlXx.png" />
 <style>
   @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
   body {
-    margin:0; padding:0;
+    margin: 0; padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: url('https://i.imgur.com/JbKDqEm.png') no-repeat center center fixed;
     background-size: cover;
@@ -19,27 +19,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-  }
-  /* Kar tanesi */
-  .snowflake {
-    position: fixed;
-    top: -10px;
-    color: white;
-    user-select: none;
-    z-index: 9999;
-    font-size: 1em;
-    pointer-events: none;
-    animation-name: fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-  @keyframes fall {
-    0% {transform: translateY(0);}
-    100% {transform: translateY(100vh);}
   }
   .container {
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.45);
     padding: 20px 40px;
     border-radius: 12px;
     text-align: center;
@@ -83,14 +65,18 @@
     align-items: center;
     gap: 6px;
   }
-  .caret-up {
+  .caret {
     border-style: solid;
-    border-width: 0 6px 8px 6px;
+    border-width: 0 6px 6px 6px;
     border-color: transparent transparent white transparent;
     display: inline-block;
     width: 0;
     height: 0;
     margin-left: 6px;
+    transition: transform 0.3s ease;
+  }
+  .caret.up {
+    transform: rotate(180deg);
   }
   .dropdown-menu {
     position: absolute;
@@ -141,7 +127,7 @@
   </button>
   <div class="dropdown">
     <button class="btn dropdown-toggle" id="instaToggle">
-      <i class="fab fa-instagram"></i> Instagram <span class="caret-up"></span>
+      <i class="fab fa-instagram"></i> Instagram <span class="caret" id="caret"></span>
     </button>
     <div class="dropdown-menu" id="instaMenu">
       <a href="https://www.instagram.com/mitharuz.aep/" target="_blank" rel="noopener noreferrer">Business Account</a>
@@ -157,28 +143,12 @@
 <script>
   const instaToggle = document.getElementById('instaToggle');
   const instaMenu = document.getElementById('instaMenu');
+  const caret = document.getElementById('caret');
+
   instaToggle.addEventListener('click', () => {
     instaMenu.classList.toggle('show');
+    caret.classList.toggle('up');
   });
-
-  // Kar tanesi oluşturma
-  function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.fontSize = (Math.random() * 10 + 10) + 'px';
-    snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
-    snowflake.textContent = '❄';
-    document.body.appendChild(snowflake);
-
-    // Animasyon bittiğinde temizle
-    snowflake.addEventListener('animationend', () => {
-      snowflake.remove();
-    });
-  }
-
-  // Sürekli kar tanesi yarat
-  setInterval(createSnowflake, 300);
 </script>
 </body>
 </html>

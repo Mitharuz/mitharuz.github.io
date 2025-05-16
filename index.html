@@ -18,15 +18,23 @@
     min-height: 100vh;
   }
   .container {
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.8);
     padding: 20px 40px;
     border-radius: 12px;
     width: 320px;
     text-align: center;
   }
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: -10px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-family: Arial, sans-serif;
   }
   button {
     width: 100%;
@@ -36,7 +44,7 @@
     border-radius: 8px;
     font-size: 1.2rem;
     color: white;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.9);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -52,7 +60,7 @@
   }
   .dropdown-menu {
     margin-top: 8px;
-    background: rgba(0,0,0,0.9);
+    background: rgba(255,255,255,0.15);
     border-radius: 8px;
     overflow: hidden;
     max-height: 0;
@@ -96,26 +104,22 @@
     font-size: 1rem;
   }
 
-  /* Mobil görünüm için eklentiler */
+  /* Responsive for mobile */
   @media (max-width: 480px) {
     .container {
-      width: 90vw !important;
-      padding: 20px 25px !important;
+      width: 90vw;
+      padding: 15px 20px;
     }
     h1 {
-      font-size: 2rem !important;
+      font-size: 2rem;
     }
     button {
-      font-size: 1.1rem !important;
-      padding: 14px !important;
-      gap: 8px !important;
+      font-size: 1rem;
+      padding: 10px;
     }
-    .dropdown-menu {
-      font-size: 1rem !important;
-    }
-    .contact-text {
-      font-size: 1rem !important;
-      margin-top: 20px !important;
+    .subtitle {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
     }
   }
 </style>
@@ -124,6 +128,7 @@
 <body>
 <div class="container">
   <h1>Mitharuz</h1>
+  <p class="subtitle">Are you looking for a video editor?</p>
   <button onclick="window.open('https://m.youtube.com/@Mitharuz', '_blank')">
     <i class="fab fa-youtube"></i> YouTube
   </button>

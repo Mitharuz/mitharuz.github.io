@@ -4,102 +4,71 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mitharuz</title>
-<link rel="icon" type="image/png" href="https://i.imgur.com/8RYWlXx.png" />
+<link rel="icon" href="https://i.imgur.com/8RYWlXx.png" />
 <style>
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
   body {
     margin: 0; padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('https://i.imgur.com/JbKDqEm.png') no-repeat center center fixed;
+    font-family: Arial, sans-serif;
+    background: url('Mthrz Banner upgrade.png') no-repeat center center fixed;
     background-size: cover;
     color: white;
-    height: 100vh;
-    overflow-x: hidden;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
   }
   .container {
-    background: rgba(0,0,0,0.45);
+    background: rgba(0,0,0,0.7);
     padding: 20px 40px;
     border-radius: 12px;
+    width: 320px;
     text-align: center;
-    min-width: 280px;
-    max-width: 320px;
   }
   h1 {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     font-size: 2.5rem;
   }
-  .btn {
-    background: rgba(255,255,255,0.1);
-    border: none;
-    padding: 12px 24px;
+  button {
+    width: 100%;
+    padding: 12px;
     margin: 8px 0;
+    border: none;
+    border-radius: 8px;
     font-size: 1.2rem;
     color: white;
-    border-radius: 8px;
+    background: rgba(255,255,255,0.4); /* Opaklık artırıldı */
     cursor: pointer;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: background-color 0.3s ease;
     user-select: none;
-  }
-  .btn:hover {
-    background-color: rgba(255,255,255,0.25);
-  }
-  .btn .fa {
-    font-size: 1.4rem;
-  }
-  .dropdown {
     position: relative;
-    width: 100%;
+    z-index: 10;
+    text-align: center;
   }
-  .dropdown-toggle {
-    display: flex;
+  .dropdown-container button {
     justify-content: center;
-    align-items: center;
-    gap: 6px;
-  }
-  .caret {
-    border-style: solid;
-    border-width: 0 6px 6px 6px;
-    border-color: transparent transparent white transparent;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 6px;
-    transition: transform 0.3s ease;
-  }
-  .caret.up {
-    transform: rotate(180deg);
   }
   .dropdown-menu {
-    position: absolute;
-    top: 45px;
-    left: 0;
-    right: 0;
-    background: rgba(255,255,255,0.1);
+    margin-top: 8px;
+    background: rgba(255,255,255,0.15);
     border-radius: 8px;
     overflow: hidden;
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
     pointer-events: none;
-    z-index: 10;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    text-align: left;
   }
   .dropdown-menu.show {
-    max-height: 200px;
+    max-height: 500px;
     opacity: 1;
     pointer-events: auto;
   }
   .dropdown-menu a {
     display: block;
-    padding: 12px;
+    padding: 10px 15px;
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
@@ -111,43 +80,64 @@
   .dropdown-menu a:hover {
     background: rgba(255,255,255,0.3);
   }
+  .caret {
+    border-style: solid;
+    border-width: 0 6px 6px 6px;
+    border-color: transparent transparent white transparent;
+    display: inline-block;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+  .caret.up {
+    transform: rotate(180deg);
+  }
   .contact-text {
     margin-top: 24px;
     font-size: 1rem;
-    user-select: text;
-    cursor: default;
   }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
 <div class="container">
   <h1>Mitharuz</h1>
-  <button class="btn" onclick="window.open('https://m.youtube.com/@Mitharuz', '_blank')">
+  <button onclick="window.open('https://m.youtube.com/@Mitharuz', '_blank')">
     <i class="fab fa-youtube"></i> YouTube
   </button>
-  <div class="dropdown">
-    <button class="btn dropdown-toggle" id="instaToggle">
-      <i class="fab fa-instagram"></i> Instagram <span class="caret" id="caret"></span>
+  <div class="dropdown-container">
+    <button id="instaBtn">
+      <i class="fab fa-instagram"></i> Instagram
+      <span class="caret" id="instaCaret"></span>
     </button>
-    <div class="dropdown-menu" id="instaMenu">
-      <a href="https://www.instagram.com/mitharuz.aep/" target="_blank" rel="noopener noreferrer">Business Account</a>
-      <a href="https://www.instagram.com/metehan_skll/" target="_blank" rel="noopener noreferrer">Personal Account</a>
+    <div class="dropdown-menu" id="instaMenu" aria-hidden="true">
+      <a href="https://www.instagram.com/mitharuz.aep/" target="_blank" rel="noopener">Business Account</a>
+      <a href="https://www.instagram.com/metehan_skll/" target="_blank" rel="noopener">Personal Account</a>
     </div>
   </div>
-  <button class="btn" onclick="window.open('https://www.tiktok.com/@mitharuz', '_blank')">
+  <button onclick="window.open('https://www.tiktok.com/@mitharuz', '_blank')">
     <i class="fab fa-tiktok"></i> TikTok
   </button>
   <div class="contact-text">For contact: mitharuzrush@gmail.com</div>
 </div>
 
 <script>
-  const instaToggle = document.getElementById('instaToggle');
+  const instaBtn = document.getElementById('instaBtn');
   const instaMenu = document.getElementById('instaMenu');
-  const caret = document.getElementById('caret');
+  const instaCaret = document.getElementById('instaCaret');
 
-  instaToggle.addEventListener('click', () => {
-    instaMenu.classList.toggle('show');
-    caret.classList.toggle('up');
+  instaBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = instaMenu.classList.toggle('show');
+    instaCaret.classList.toggle('up', isOpen);
+    instaMenu.setAttribute('aria-hidden', !isOpen);
+  });
+
+  document.addEventListener('click', () => {
+    if (instaMenu.classList.contains('show')) {
+      instaMenu.classList.remove('show');
+      instaCaret.classList.remove('up');
+      instaMenu.setAttribute('aria-hidden', 'true');
+    }
   });
 </script>
 </body>
